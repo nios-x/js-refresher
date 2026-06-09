@@ -258,6 +258,30 @@ const nums = [1, 2, 3];
 console.log(add(...nums));
 ```
 
+### Function Methods: `call`, `apply`, `bind`
+
+These methods change `this` inside a function and allow you to pass arguments differently.
+
+```js
+const person = {
+  name: "Maya",
+};
+
+function introduce(greeting, punctuation) {
+  console.log(`${greeting}, I am ${this.name}${punctuation}`);
+}
+
+introduce.call(person, "Hello", "!");
+introduce.apply(person, ["Hi", "..."]);
+
+const boundIntroduce = introduce.bind(person, "Hey");
+boundIntroduce("!!!");
+```
+
+- `call(thisArg, arg1, arg2, ...)` invokes the function immediately with individual arguments.
+- `apply(thisArg, [arg1, arg2, ...])` invokes the function immediately with an array of arguments.
+- `bind(thisArg, arg1, arg2, ...)` returns a new function with `this` fixed and optional pre-set arguments.
+
 ---
 
 ## 9. Objects
